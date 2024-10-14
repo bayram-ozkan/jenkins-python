@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service
+spec:
+  type: LoadBalancer  # Dış erişim için NodePort veya LoadBalancer kullanabilirsin
+  selector:
+    app: flask-app
+  ports:
+    - protocol: TCP
+      port: 80  # Servis üzerinden erişilecek port
+      targetPort: 5000  # Konteynerd
